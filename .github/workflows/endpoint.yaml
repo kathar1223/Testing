@@ -13,5 +13,34 @@ jobs:
 
     - name: Hit endpoint with curl and print response
       run: |
-        response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X GET "https://api.example.com/endpoint")
+        response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X POST 'https://www.google.com/_/TravelFrontendUi/data/travel.frontend.flights.FlightsFrontendService/GetBookingResults?f.sid=-2455427448935086656&bl=boq_travel-frontend-ui_20240716.10_p1&hl=en&soc-app=162&soc-platform=1&soc-device=1&_reqid=34929&rt=c' \
+          -H 'accept: */*' \
+          -H 'accept-language: en-US,en;q=0.9' \
+          -H 'content-type: application/x-www-form-urlencoded;charset=UTF-8' \
+          -H 'cookie: AEC=AVYB7crUQuOvqq2ciabGnSG0-cZAm-xL4x7tWM-b4ZrGctu9r429vWykpg; OTZ=7651613_40_40__40_; NID=516=QrjOccSmRJKk2fFTT-H5-JYtZDIxZWozwjA_FiNsgiicihH6zfznr-NjLqlpKDBiOMNMJ2uep3GfPyujPy9KmhtontPTwas6LrRaF9tnqhtWzN22vkjKTfSzuCKIRvLN6PbERq82WpewRhPGU_1JsMPKpGXlmuPJPNeKzqA4Nvu-4wfvSl7C98GrYnG6ubsd6knvZ_vicD7SKP5qv6YtebqdA0cMDGlezhniy8_e8rF4CJiBV_f-1pO9uXwToBDeag' \
+          -H 'origin: https://www.google.com' \
+          -H 'priority: u=1, i' \
+          -H 'referer: https://www.google.com/travel/flights/booking?tfs=CBwQAhpBEgoyMDI0LTA3LTI1Ih8KA0FVSBIKMjAyNC0wNy0yNRoDSFlEKgJFWTIDMjc2KABqBwgBEgNBVUhyBwgBEgNIWURAAUABQANIAXABggELCP___________wGYAQI&tfu=CmxDalJJVG5GQlptWlpibVpuTlRCQlJ6WlpjRkZDUnkwdExTMHRMUzB0ZDJaaVltSXhNMEZCUVVGQlIyRmhabVZqUmpsM1NWRkJFZ1ZGV1RJM05ob0tDS2tNRUFBYUEwRkZSRGdjY0xmUEFnPT0SAggAIgA' \
+          -H 'sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"' \
+          -H 'sec-ch-ua-arch: "arm"' \
+          -H 'sec-ch-ua-bitness: "64"' \
+          -H 'sec-ch-ua-form-factors: "Desktop"' \
+          -H 'sec-ch-ua-full-version: "126.0.6478.127"' \
+          -H 'sec-ch-ua-full-version-list: "Not/A)Brand";v="8.0.0.0", "Chromium";v="126.0.6478.127", "Google Chrome";v="126.0.6478.127"' \
+          -H 'sec-ch-ua-mobile: ?0' \
+          -H 'sec-ch-ua-model: ""' \
+          -H 'sec-ch-ua-platform: "macOS"' \
+          -H 'sec-ch-ua-platform-version: "12.2.0"' \
+          -H 'sec-ch-ua-wow64: ?0' \
+          -H 'sec-fetch-dest: empty' \
+          -H 'sec-fetch-mode: cors' \
+          -H 'sec-fetch-site: same-origin' \
+          -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36' \
+          -H 'x-goog-batchexecute-bgr: [";loi4iNDQAAZH5MbbZ-Rf6JeNeiIjVoQmADQBEArZ1BpHEuD3EfpwAzaFNg8rkRsZMD1iOnLIvLq6yu3lrNGz8b7MwOH3Ldd9fAGzeJHtHwAAACZPAAAAAnUBB2MAOlIl0ZsDeKN0BVR44rDBeXBvWMZCeV9jNLh7ieivlD81dfngQjuAQUvTU-Bs6pBudsuWjDjHyN8hTyCEAsCyWHA2XE36j2t6qz9ALn873G09KxhiR-FAArLwCfmz9vyspu2nvyuIS-iKpFJe1CMcvyNOFUDUGOD1kTJmUcUo0lreRuSQoKsXLIzK8GKHVPHVy7j2YZLACgESwOOYIK267GT5qhOVFPXglUq0oanvaLpacQS6hRVPW0GVGHkGaf2dQRLlvmYjtm1MjPuyDu4JKbqJUvUygCRM2S_JUGpDXYelTd_31bUde8kEQ0gbMd9VhCmI61jt7TW7CbH9eg_ahfUNSenF61_LFeXXXGNHXj3wp_6ysxvI-OM2zfjQopIuv5dqKUbMoCmtPvat_SoXYjwufTvwSU4migMzV0tQ1_BDvzFgEqCGtkRcGFojXbBBjjkaUITBmKUNoL8gfvJheXCYinBEFSGgwamvBFtU7r7sSImZJE2LD9BDG4kOKKs94IxsejorZFVBNfunSDVuaUZD2N_bKNHdzL-83CMwVM5Ct_2DJPh8leTPI1Uf6QpMInOjcpwXatmP2Gbmnj_51vJIbAZ2YClB5d31grULQzsErr52-r80B9hYyP_4yFyhLTcl2B-jJouGLdhUamULYlRj5jWEHAgkUCICBY69VuOUUjX-ihZwPB08LNe2zQQR6Rktd0NVMrKjoEQOOFdrK7UjebNn-Vn75sYJxhhZCKvwt0yYxbZLrE1emvIa9oeXKt58yPMRMFIGEO71iaBq0pq5yPE4PmurV_MNZ-xRhB_M5Zz8Qj5XwlakSGZmaoh4vNJ-6U6gvX8SyEMrN4VTzab1FukWbOKoNx-igo-BLztafl01OBvTZ8eGUmu20F4j36LZ9e2E2RNd4PjZ0FSX15dxdznrWQPsCG1SuZu5FoxAmwgM_8TUTVIzW7ygXfrRvUUwWmAshM5GLCCbUYwDDE7YgKqaT0J35qznrnuqsK9FBY0nGUoBP6sf2H-kng",null,null,74,6,null,null,0,"5"]' \
+          -H 'x-goog-ext-259736195-jspb: ["en-US","AE","AED",1,null,[-240],null,[[72624439]],6,[]]' \
+          -H 'x-same-domain: 1' \
+          --data-raw 'f.req=%5Bnull%2C%22%5B%5Bnull%2C%5C%22CjRITnFBZmZZbmZnNTBBRzZZcFFCRy0tLS0tLS0td2ZiYmIxM0FBQUFBR2FhZmVjRjl3SVFBEgVFWTI3NhoKCK
+
         echo "Response: $response"
+
+          
