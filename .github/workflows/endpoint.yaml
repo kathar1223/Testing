@@ -1,0 +1,17 @@
+name: Hit Curl Endpoint and Print Response
+
+on:
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  curl-endpoint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Hit endpoint with curl and print response
+      run: |
+        response=$(curl -s -w "\nHTTP_CODE:%{http_code}" -X GET "https://api.example.com/endpoint")
+        echo "Response: $response"
